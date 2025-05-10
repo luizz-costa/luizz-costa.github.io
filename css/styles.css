@@ -67,7 +67,7 @@ header {
     left: 0; 
     width: 100%;
     padding: 1rem;
-    background-color: var(--bg-color-01);
+    background-color: var(--bg-color-02);
 }
 
 .nav a, .nav-responsive a {
@@ -172,7 +172,7 @@ span {
     width: 2.5rem;
     height: 2.5rem;
     background: transparent;
-    border: solid 0.15rem var(--bg-color-02);
+    border-bottom: solid 0.15rem var(--text-color);
     border-radius: 0.5rem;
     font-size: 2rem;
     margin: 1.8rem 0.5rem;
@@ -182,7 +182,7 @@ span {
 
 .rede-social-container a:hover {
     background-color: var();
-    color: var(--bg-color-02);
+    color: var(--color-00);
     box-shadow: 0 0 0.3rem var();
 }
 
@@ -192,7 +192,6 @@ span {
     font-size: 2.8rem;
     margin-bottom: 1rem;
     text-align: center;
-    text-decoration: underline var(--main-color);
     /*margin-bottom: 1rem; /* Espaçamento entre o título e o parágrafo */
     /*font-weight: 700;
     font-size: 3.0rem;
@@ -204,6 +203,13 @@ span {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    max-width: 1090px; /* limite de largura do grid */
+    margin: 0 auto; /* centraliza o container */
+    padding: 2rem 1rem;
 }
 
 .habilidades-container .habilidades-box {
@@ -261,7 +267,12 @@ span {
 
 .projetos-container {
     display: grid;
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    max-width: 1090px; /* limite de largura do grid */
+    margin: 0 auto; /* centraliza o container */
+    padding: 2rem 1rem;
 }
 
 .projetos-box {
@@ -274,7 +285,7 @@ span {
 
 .projetos-box img {
     width: 100%;
-    transition: 0.5s ease;    
+    transition: 0.3s ease;    
 }
 
 .projetos-box img:hover {
@@ -293,9 +304,9 @@ span {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 4rem;
+    padding: 0 1rem;
     transform: translateY(30rem);
-    transition: 0.5s ease;
+    transition: 0.3s ease;
     
 }
 
@@ -304,19 +315,20 @@ span {
 }
 
 .projetos-layer h4 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
 }
 
 .projetos-layer p {
-    margin: 0.2rem 0 0.5rem;    
+    margin: 0.2rem 0 0.5rem;
+    font-size: 0.9rem;   
 }
 
 .projetos-layer a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     background: var(--text-color);
     border-radius: 50%;
 }
@@ -405,7 +417,7 @@ footer {
 }
 
 .btn:hover {
-    box-shadow: 0 0 0.3rem var(--bg-color-02);
+    box-shadow: 0 0 0.3rem var(--main-color);
     background-color: var(--color-00);
    
     cursor: pointer;
