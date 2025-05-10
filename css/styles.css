@@ -193,7 +193,6 @@ span {
     margin-bottom: 1rem;
     text-align: center;
     text-decoration: underline var(--main-color);
-    text-underline-offset: 15px;
     /*margin-bottom: 1rem; /* Espaçamento entre o título e o parágrafo */
     /*font-weight: 700;
     font-size: 3.0rem;
