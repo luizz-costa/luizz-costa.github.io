@@ -1,3 +1,69 @@
-baseURL: https://example.org/
-locale: en-us
-title: My New Hugo Project
+baseURL: https://luizz-costa.github.io/
+locale: pt-BR
+title: Luiz Felipe Costa
+theme: hugo-theme-nightfall
+
+# Sem tags e categorias por enquanto
+disableKinds:
+  - taxonomy
+  - term
+
+# Recomendado pela documentação do Hugo para o deploy no GitHub Pages
+caches:
+  images:
+    dir: :cacheDir/images
+
+# Menu do cabeçalho (o tema mostra cada item como ~/nome)
+menus:
+  header:
+    - name: sobre
+      url: /#sobre
+      weight: 1
+    - name: trajetoria
+      url: /#trajetoria
+      weight: 2
+    - name: projetos
+      url: /#projetos
+      weight: 3
+    - name: contato
+      url: /#contato
+      weight: 4
+
+params:
+  # Cabeçalho do tema: luiz@homelab ~ $
+  user: luiz
+  hostname: homelab
+
+  sitedescription: Estudante de Sistemas de Informação na PUC Minas, focado em back-end e infraestrutura. Projetos com C#/.NET, PostgreSQL, Docker e Linux.
+  openLinksInNewTab: true
+
+  # Cor de destaque do tema: blue, orange, green, red ou um hex
+  styles:
+    color: orange
+
+  # Páginas de projeto não mostram data nem tempo de leitura
+  showMetadata: false
+  showReadingTime: false
+
+  footerHtml: '© 2026 Luiz Felipe Alves Costa. Feito com <a href="https://gohugo.io" class="footerLink">Hugo</a> e o tema <a href="https://github.com/LordMathis/hugo-theme-nightfall" class="footerLink">Nightfall</a>.'
+
+  author:
+    name: Luiz Felipe Alves Costa
+    email: luizcostavzp@gmail.com
+    # Coloque a foto em static/img/ e descomente a linha abaixo
+    # avatar: /img/luiz.jpg
+    iniciais: LF
+
+  # Dados da apresentação na página inicial
+  portfolio:
+    perfil: Back-end e infraestrutura. Estudante de Sistemas de Informação na PUC Minas.
+    status: Procurando estágio. Belo Horizonte, mudança imediata.
+    links:
+      - nome: GitHub
+        url: https://github.com/luizz-costa
+      - nome: LinkedIn
+        url: https://www.linkedin.com/in/luizz-costa/
+      - nome: Currículo
+        url: /curriculo.pdf
+      - nome: E-mail
+        url: mailto:luizcostavzp@gmail.com

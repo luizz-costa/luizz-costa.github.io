@@ -1,0 +1,29 @@
+{{/* Itens de data/certificados.yaml. Os que têm imagem de badge aparecem primeiro, em destaque. */}}
+{{ $itens := hugo.Data.certificados.itens }}
+
+{{ $comBadge := slice }}
+{{ range $itens }}
+  {{ if .badge }}{{ $comBadge = $comBadge | append . }}{{ end }}
+{{ end }}
+
+{{ with $comBadge }}
+  <ul class="badges">
+    {{ range . }}
+      <li>
+        <a href="{{ .link }}" title="Verificar {{ .nome }}">
+          <img src="{{ .badge | relURL }}" alt="Badge {{ .nome }}, {{ .emissor }}" width="112" height="112" loading="lazy">
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
+
+<ul class="certificados">
+  {{ range $itens }}
+    <li class="certificado">
+      <span class="certificado-nome">{{ .nome }}</span>
+      <span class="certificado-emissor">{{ .emissor }}</span>
+      {{ with .link }}<a class="certificado-link" href="{{ . }}">Verificar</a>{{ end }}
+    </li>
+  {{ end }}
+</ul>

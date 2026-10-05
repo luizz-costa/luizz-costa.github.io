@@ -1,0 +1,27 @@
+{{/* Um card por arquivo em content/projetos/, na ordem do campo weight. */}}
+<div class="projetos">
+  {{ range (where site.RegularPages "Section" "projetos").ByWeight }}
+    <article class="projeto{{ if .Params.destaque }} projeto-destaque{{ end }}{{ if .Params.imagem }} projeto-com-imagem{{ end }}">
+      {{ with .Params.imagem }}
+        <img class="projeto-imagem" src="{{ . | relURL }}" alt="Tela do projeto {{ $.Title }}" loading="lazy">
+      {{ end }}
+      <div class="projeto-texto">
+        <p class="projeto-contexto">{{ .Params.contexto }}</p>
+        <h3 class="projeto-titulo"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="projeto-descricao">{{ .Description }}</p>
+        <ul class="pilha" aria-label="Tecnologias usadas">
+          {{ range .Params.stack }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <p class="projeto-acoes">
+          <a href="{{ .RelPermalink }}">Ver detalhes</a>
+          {{ if .Params.repo }}
+            <a href="{{ .Params.repo }}">Código no GitHub</a>
+          {{ else if .Params.status }}
+            <span class="projeto-pendente">{{ .Params.status }}</span>
+          {{ end }}
+          {{ with .Params.demo }}<a href="{{ . }}">Ver no ar</a>{{ end }}
+        </p>
+      </div>
+    </article>
+  {{ end }}
+</div>

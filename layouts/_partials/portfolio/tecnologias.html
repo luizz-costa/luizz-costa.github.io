@@ -1,0 +1,16 @@
+{{/* Grupos de tecnologias definidos em data/tecnologias.yaml. */}}
+<div class="tecnologias">
+  {{ range hugo.Data.tecnologias.grupos }}
+    <div class="tec-grupo{{ if .estudando }} tec-estudando{{ end }}">
+      <h3 class="tec-grupo-nome">{{ .nome }}</h3>
+      <ul class="tec-itens">
+        {{ range .itens }}
+          <li>
+            {{ with .icone }}<span class="tec-icone" style="--icone: url('{{ printf "icones/%s.svg" . | relURL }}')" aria-hidden="true"></span>{{ end }}
+            {{ .nome }}
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  {{ end }}
+</div>

@@ -1,0 +1,451 @@
+/*
+  Estilos da página inicial do portfólio.
+  Carregado depois do CSS do tema Nightfall (ver layouts/_partials/custom-head.html).
+  As cores e fontes repetem as do tema para tudo parecer uma peça só.
+*/
+
+:root {
+  --fundo: #292a2d;        /* fundo do tema */
+  --fundo-escuro: #252627; /* cabeçalho e rodapé do tema */
+  --cartao: #2f2f2f;       /* blocos do tema */
+  --texto: #f8f8ff;
+  --texto-suave: #b4b4bd;
+  --linha: #45464b;
+  --ambar: #ffb300;        /* cor "orange" do tema */
+  --azul: #80aadd;         /* cor "blue" do tema */
+  --verde: #33d17a;        /* cor "green" do tema */
+  --mono: "Fira Mono", ui-monospace, monospace;
+}
+
+/* ---------- Base da página inicial ---------- */
+
+.portfolio {
+  padding: 0 20px 56px;
+  text-align: left;
+}
+
+.portfolio a:focus-visible,
+.headerWrapper a:focus-visible {
+  outline: 2px solid var(--ambar);
+  outline-offset: 3px;
+}
+
+.secao {
+  padding-top: 56px;
+  scroll-margin-top: 12px;
+}
+
+.secao-titulo {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 0 32px;
+}
+
+/* ---------- Apresentação ---------- */
+
+.apresentacao {
+  text-align: center;
+  padding: 64px 0 8px;
+}
+
+.foto {
+  display: block;
+  width: 168px;
+  height: 168px;
+  margin: 0 auto 28px;
+  border-radius: 50%;
+  border: 2px solid var(--linha);
+  object-fit: cover;
+}
+
+.foto-iniciais {
+  display: grid;
+  place-items: center;
+  background: var(--fundo-escuro);
+  color: var(--ambar);
+  font-family: var(--mono);
+  font-size: 3rem;
+  box-sizing: border-box;
+}
+
+.nome {
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+
+.perfil {
+  max-width: 32em;
+  margin: 0 auto 10px;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.status {
+  margin: 0 0 30px;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* o ponto fica junto do texto, mesmo quando a frase quebra em duas linhas */
+.status-luz {
+  display: inline-block;
+  vertical-align: 0.1em;
+  margin-right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--verde);
+  box-shadow: 0 0 0 3px rgba(51, 209, 122, 0.22);
+}
+
+.links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 32px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--mono);
+}
+
+.links a {
+  color: var(--texto);
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--ambar);
+}
+
+.links a:hover {
+  color: var(--ambar);
+  text-decoration: none;
+}
+
+/* ---------- Sobre ---------- */
+
+.sobre-texto {
+  max-width: 36em;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.sobre-texto p {
+  margin: 0 0 1em;
+}
+
+/* ---------- Trajetória: desenhada como um git log --graph ---------- */
+
+.gitlog {
+  list-style: none;
+  max-width: 36em;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.commit {
+  position: relative;
+  padding: 0 0 36px 40px;
+}
+
+/* traço vertical que liga um commit ao próximo */
+.commit::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 14px;
+  bottom: -6px;
+  width: 2px;
+  background: var(--linha);
+}
+
+.commit:last-child {
+  padding-bottom: 0;
+}
+
+.commit:last-child::before {
+  display: none;
+}
+
+/* o nó do commit */
+.commit::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid var(--texto-suave);
+  background: var(--fundo);
+}
+
+.commit-atual::after {
+  border-color: var(--ambar);
+  background: var(--ambar);
+}
+
+.commit-linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  margin: 0 0 8px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--texto-suave);
+}
+
+/* no git log, o identificador do commit fica em amarelo e a referência em azul */
+.commit-periodo { color: var(--ambar); }
+.commit-ref { color: var(--azul); }
+
+.commit-titulo {
+  font-size: 1.15rem;
+  line-height: 1.35;
+  margin: 0 0 2px;
+}
+
+.commit-local {
+  margin: 0 0 10px;
+  color: var(--texto-suave);
+}
+
+.commit-descricao {
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ---------- Projetos ---------- */
+
+.projetos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.projeto {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background: var(--cartao);
+}
+
+.projeto-destaque {
+  grid-column: 1 / -1;
+  border-left: 3px solid var(--ambar);
+}
+
+.projeto-texto {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.projeto-imagem {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 1px solid var(--linha);
+}
+
+.projeto-destaque.projeto-com-imagem {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.projeto-destaque.projeto-com-imagem .projeto-imagem {
+  margin-bottom: 0;
+}
+
+.projeto-contexto {
+  margin: 0 0 8px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.projeto-titulo {
+  font-size: 1.2rem;
+  line-height: 1.3;
+  margin: 0 0 10px;
+}
+
+.projeto-destaque .projeto-titulo {
+  font-size: 1.45rem;
+}
+
+.projeto-titulo a {
+  color: var(--texto);
+}
+
+.projeto-titulo a:hover {
+  color: var(--ambar);
+  text-decoration: none;
+}
+
+.projeto-descricao {
+  margin: 0 0 16px;
+  line-height: 1.65;
+}
+
+.pilha {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 0 0 20px;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.projeto-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: auto 0 0;
+  font-size: 0.95rem;
+}
+
+.projeto-pendente {
+  color: var(--texto-suave);
+  font-style: italic;
+}
+
+/* ---------- Tecnologias ---------- */
+
+.tecnologias {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 48px;
+  max-width: 36em;
+  margin: 0 auto;
+}
+
+.tec-grupo-nome {
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+  margin: 0 0 14px;
+}
+
+.tec-itens {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.tec-itens li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* o ícone SVG vira uma máscara: assume a cor do texto e combina com o tema */
+.tec-icone {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  background-color: var(--texto);
+  -webkit-mask: var(--icone) center / contain no-repeat;
+  mask: var(--icone) center / contain no-repeat;
+}
+
+.tec-estudando li { color: var(--texto-suave); }
+.tec-estudando .tec-icone { background-color: var(--texto-suave); }
+
+/* ---------- Cursos e certificações ---------- */
+
+.badges {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 0 32px;
+  padding: 0;
+}
+
+.badges img {
+  display: block;
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+}
+
+.certificados {
+  list-style: none;
+  max-width: 36em;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.certificado {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 4px 20px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.certificado:first-child {
+  border-top: 1px solid var(--linha);
+}
+
+.certificado-emissor {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.certificado-link {
+  font-size: 0.9rem;
+}
+
+/* ---------- Contato ---------- */
+
+.contato {
+  text-align: center;
+}
+
+.contato p {
+  max-width: 32em;
+  margin: 0 auto 16px;
+  line-height: 1.7;
+}
+
+.contato-email {
+  font-family: var(--mono);
+  font-size: clamp(1.05rem, 4vw, 1.4rem);
+  word-break: break-word;
+}
+
+/* ---------- Telas pequenas ---------- */
+
+@media (max-width: 700px) {
+  .apresentacao { padding-top: 40px; }
+
+  .projetos,
+  .projeto-destaque.projeto-com-imagem {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .projeto { padding: 20px; }
+}
+
+@media (max-width: 520px) {
+  .tecnologias { grid-template-columns: minmax(0, 1fr); }
+
+  .certificado { grid-template-columns: minmax(0, 1fr) auto; }
+  .certificado-nome { grid-column: 1 / -1; }
+}

@@ -1,0 +1,15 @@
+{{/* Linha do tempo no formato de um "git log --graph": cada item é um commit. */}}
+<ol class="gitlog">
+  {{ range hugo.Data.trajetoria.itens }}
+    <li class="commit{{ if .atual }} commit-atual{{ end }}">
+      <p class="commit-linha">
+        <span class="commit-periodo">{{ .periodo }}</span>
+        {{ if .atual }}<span class="commit-ref">(HEAD -&gt; atual)</span>{{ end }}
+        <span class="commit-tipo">{{ cond (eq .tipo "formacao") "formação" "experiência" }}</span>
+      </p>
+      <h3 class="commit-titulo">{{ .titulo }}</h3>
+      <p class="commit-local">{{ .local }}</p>
+      <p class="commit-descricao">{{ .descricao }}</p>
+    </li>
+  {{ end }}
+</ol>

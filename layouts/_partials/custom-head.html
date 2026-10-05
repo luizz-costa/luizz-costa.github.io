@@ -1,0 +1,6 @@
+{{/* Ponto de extensão do tema Nightfall: carrega o CSS do portfólio depois do CSS do tema. */}}
+{{ with resources.Get "css/portfolio.css" }}
+  {{ $css := . | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{ end }}
+<meta name="theme-color" content="#292a2d">

@@ -1,0 +1,35 @@
+# link: URL de verificação da credencial (Credly, Udemy etc.). Sem link, o item aparece sem botão.
+# badge: imagem do badge em static/badges/ (opcional). Com badge, o item aparece na fileira de destaque.
+itens:
+  - nome: AWS Academy Cloud Foundations
+    emissor: AWS Academy
+    link: ""
+    badge: ""
+
+  - nome: "Docker: do básico ao avançado"
+    emissor: Udemy
+    link: ""
+
+  - nome: Formação Linux Completa
+    emissor: Udemy
+    link: ""
+
+  - nome: "Terraform: Fundamentos de Infraestrutura como Código"
+    emissor: Udemy
+    link: ""
+
+  - nome: Fundamentos de Redes para DevOps
+    emissor: Udemy
+    link: ""
+
+  - nome: Python para automação de tarefas
+    emissor: Udemy
+    link: ""
+
+  - nome: PHP com Orientação a Objetos e Design Patterns
+    emissor: php.com.br
+    link: ""
+
+  - nome: Sensibilização para Segurança Digital
+    emissor: Cisco
+    link: ""

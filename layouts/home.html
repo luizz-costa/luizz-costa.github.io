@@ -1,0 +1,40 @@
+{{ define "title" }}{{ site.Params.author.name }}{{ end }}
+
+{{ define "main" }}
+<div class="portfolio">
+
+  {{ partial "portfolio/apresentacao.html" . }}
+
+  <section class="secao" id="sobre" aria-labelledby="titulo-sobre">
+    <h2 class="secao-titulo" id="titulo-sobre">Sobre</h2>
+    <div class="sobre-texto">{{ .Content }}</div>
+  </section>
+
+  <section class="secao" id="trajetoria" aria-labelledby="titulo-trajetoria">
+    <h2 class="secao-titulo" id="titulo-trajetoria">Trajetória</h2>
+    {{ partial "portfolio/trajetoria.html" . }}
+  </section>
+
+  <section class="secao" id="projetos" aria-labelledby="titulo-projetos">
+    <h2 class="secao-titulo" id="titulo-projetos">Projetos</h2>
+    {{ partial "portfolio/projetos.html" . }}
+  </section>
+
+  <section class="secao" id="tecnologias" aria-labelledby="titulo-tecnologias">
+    <h2 class="secao-titulo" id="titulo-tecnologias">Tecnologias</h2>
+    {{ partial "portfolio/tecnologias.html" . }}
+  </section>
+
+  <section class="secao" id="certificados" aria-labelledby="titulo-certificados">
+    <h2 class="secao-titulo" id="titulo-certificados">Cursos e certificações</h2>
+    {{ partial "portfolio/certificados.html" . }}
+  </section>
+
+  <section class="secao contato" id="contato" aria-labelledby="titulo-contato">
+    <h2 class="secao-titulo" id="titulo-contato">Contato</h2>
+    <p>Estou aberto a vagas de estágio em back-end, infraestrutura e DevOps. Respondo por e-mail ou pelo LinkedIn.</p>
+    <p><a class="contato-email" href="mailto:{{ site.Params.author.email }}">{{ site.Params.author.email }}</a></p>
+  </section>
+
+</div>
+{{ end }}

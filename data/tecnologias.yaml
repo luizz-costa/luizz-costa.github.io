@@ -1,0 +1,28 @@
+# icone: nome de um arquivo em static/icones/ (sem o .svg). Pode ficar vazio.
+grupos:
+  - nome: Back-end
+    itens:
+      - { nome: "C#", icone: csharp }
+      - { nome: ".NET 8", icone: dotnetcore }
+      - { nome: "PHP", icone: php }
+      - { nome: "Laravel", icone: laravel }
+
+  - nome: Banco de dados
+    itens:
+      - { nome: "PostgreSQL", icone: postgresql }
+      - { nome: "MySQL", icone: mysql }
+
+  - nome: Infraestrutura
+    itens:
+      - { nome: "Linux", icone: linux }
+      - { nome: "Docker", icone: docker }
+      - { nome: "Git", icone: git }
+      - { nome: "Shell Script", icone: bash }
+
+  - nome: Estudando
+    estudando: true
+    itens:
+      - { nome: "AWS", icone: amazonwebservices }
+      - { nome: "Terraform", icone: terraform }
+      - { nome: "GitHub Actions", icone: githubactions }
+      - { nome: "Python", icone: python }

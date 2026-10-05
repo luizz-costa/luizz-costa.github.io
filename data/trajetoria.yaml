@@ -1,0 +1,22 @@
+# Linha do tempo da página inicial, da mais recente para a mais antiga.
+# atual: true marca o item como HEAD (só um item deve ter isso).
+# tipo: experiencia ou formacao
+itens:
+  - titulo: Desenvolvedor responsável
+    local: Projeto de extensão, PUC Minas
+    periodo: ago/2026 – atual
+    tipo: experiencia
+    atual: true
+    descricao: Desenvolvimento da API e do banco de dados de um sistema de escalas de serviço para uma empresa parceira, dos requisitos com o usuário aos testes, numa equipe de seis pessoas.
+
+  - titulo: Bacharelado em Sistemas de Informação
+    local: PUC Minas
+    periodo: 2025 – 2028
+    tipo: formacao
+    descricao: Graduação a distância, hoje no 4º período, com projetos práticos em equipe a cada semestre.
+
+  - titulo: Auxiliar administrativo e de logística
+    local: RIMA Industrial S/A
+    periodo: nov/2024 – fev/2025
+    tipo: experiencia
+    descricao: Rotinas no ERP TOTVS, com emissão e controle de MDF-e e CIOT e cadastro de motoristas e frotas.

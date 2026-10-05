@@ -1,0 +1,43 @@
+# Traduções dos textos do tema Nightfall para português
+[not_found]
+other = "Página não encontrada"
+
+[not_found_desc]
+other = "Esse endereço não existe. Volte para a página inicial pelo menu."
+
+[home]
+other = "Início"
+
+[published]
+other = "publicado em"
+
+[reading_time]
+other = "tempo de leitura"
+
+[reading_time_desc]
+one = "1 minuto"
+other = "{{ .Count }} minutos"
+
+[authors]
+other = "autores"
+
+[tags]
+other = "tags"
+
+[categories]
+other = "categorias"
+
+[and]
+other = "e"
+
+[powered_by]
+other = "Feito com"
+
+[theme]
+other = "tema"
+
+[newer_posts]
+other = "mais recentes"
+
+[older_posts]
+other = "mais antigos"

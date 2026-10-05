@@ -1,0 +1,19 @@
+{{ $autor := site.Params.author }}
+{{ $p := site.Params.portfolio }}
+<section class="apresentacao" aria-label="Apresentação">
+  {{ with $autor.avatar }}
+    <img class="foto" src="{{ . | relURL }}" alt="Foto de {{ $autor.name }}" width="168" height="168">
+  {{ else }}
+    <div class="foto foto-iniciais" aria-hidden="true">{{ $autor.iniciais }}</div>
+  {{ end }}
+
+  <h1 class="nome">{{ $autor.name }}</h1>
+  <p class="perfil">{{ $p.perfil }}</p>
+  <p class="status"><span class="status-luz" aria-hidden="true"></span>{{ $p.status }}</p>
+
+  <ul class="links">
+    {{ range $p.links }}
+      <li><a href="{{ .url | safeURL }}">{{ .nome }}</a></li>
+    {{ end }}
+  </ul>
+</section>
