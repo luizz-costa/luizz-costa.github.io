@@ -30,6 +30,7 @@ itens:
     emissor: php.com.br
     link: ""
 
-  - nome: Sensibilização para Segurança Digital
+  - nome: Digital Safety and Security Awareness
     emissor: Cisco
-    link: ""
+    link: "https://www.credly.com/badges/dd6353bb-098f-42db-b6ef-9cfda9ee07cd/public_url"
+    badge: /badges/digital-safety-and-security-awareness.png
