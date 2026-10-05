@@ -51,13 +51,13 @@ params:
     name: Luiz Felipe Alves Costa
     email: luizcostavzp@gmail.com
     # Coloque a foto em static/img/ e descomente a linha abaixo
-    # avatar: /img/luiz.jpg
+    avatar: /img/luiz.jpg
     iniciais: LF
 
   # Dados da apresentação na página inicial
   portfolio:
     perfil: Back-end e infraestrutura. Estudante de Sistemas de Informação na PUC Minas.
-    status: Procurando estágio. Belo Horizonte, mudança imediata.
+    status: 
     links:
       - nome: GitHub
         url: https://github.com/luizz-costa
