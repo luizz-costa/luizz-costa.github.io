@@ -22,7 +22,7 @@
 
   window.matchMedia('(min-width: 769px)').addEventListener('change', fecharMenu);
 
-  // ---------- 2. Destaca no menu a seção que está na tela ----------
+  // ---------- 2. Destaca a seção que está na tela (menu e prompt) ----------
   // Cada link aponta para uma seção (#sobre, #trajetoria...). A seção "atual"
   // é a que está passando por uma linha imaginária a 40% da altura da tela.
   // O link dessa seção ganha a classe "ativo" (cor âmbar, definida no CSS).
@@ -30,13 +30,19 @@
     .map(function (link) {
       var id = new URL(link.href, location.href).hash.slice(1);
       var secao = id && document.getElementById(id);
-      return secao ? { link: link, secao: secao } : null;
+      return secao ? { link: link, secao: secao, id: id } : null;
     })
     .filter(Boolean);
 
   if (!itens.length) return;
 
+  // O caminho do prompt (o "~" em luiz@homelab:~$) acompanha a seção,
+  // como se a página desse "cd" em cada uma: luiz@homelab:~/projetos$
+  var caminho = document.querySelector('.prompt-path');
+
   function marcar(ativo) {
+    if (caminho) caminho.textContent = ativo ? '~/' + ativo.id : '~';
+
     itens.forEach(function (item) {
       var eAtivo = item === ativo;
       item.link.classList.toggle('ativo', eAtivo);

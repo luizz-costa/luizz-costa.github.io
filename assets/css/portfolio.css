@@ -607,3 +607,15 @@
 .headerLinks ul li a.ativo .menu-dir {
   color: var(--ambar);
 }
+
+/* Em celulares bem estreitos, o prompt diminui um pouco
+   para "~/trajetoria" caber ao lado do botão do menu */
+@media screen and (max-width: 380px) {
+  .header {
+    gap: 12px;
+  }
+
+  .terminal {
+    font-size: 0.85rem;
+  }
+}
