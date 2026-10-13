@@ -44,12 +44,17 @@
 
 /* ---------- Apresentação ---------- */
 
+/* Ordem do bloco: foto, selo de status, nome, frase e links */
 .apresentacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding: 64px 0 8px;
 }
 
 .foto {
+  order: -2;
   display: block;
   width: 168px;
   height: 168px;
@@ -72,27 +77,39 @@
 .nome {
   font-size: clamp(2rem, 6vw, 2.75rem);
   line-height: 1.15;
-  margin: 0 0 14px;
+  margin: 0 0 12px;
+  text-wrap: balance;
 }
 
+/* Frase de perfil: as duas linhas ficam com tamanhos parecidos */
 .perfil {
-  max-width: 32em;
-  margin: 0 auto 10px;
+  max-width: 30em;
+  margin: 0 auto 28px;
   font-size: 1.125rem;
   line-height: 1.6;
+  text-wrap: balance;
 }
 
+/* Selo de status: fonte de terminal, contorno verde, sempre numa linha só */
 .status {
-  margin: 0 0 30px;
-  color: var(--texto-suave);
-  font-size: 0.95rem;
+  order: -1;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 18px;
+  padding: 6px 14px;
+  border: 1px solid rgba(51, 209, 122, 0.35);
+  border-radius: 999px;
+  background: rgba(51, 209, 122, 0.08);
+  color: var(--texto);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  white-space: nowrap;
 }
 
-/* o ponto fica junto do texto, mesmo quando a frase quebra em duas linhas */
 .status-luz {
-  display: inline-block;
-  vertical-align: 0.1em;
-  margin-right: 10px;
+  flex: none;
   width: 8px;
   height: 8px;
   border-radius: 50%;

@@ -56,8 +56,8 @@ params:
 
   # Dados da apresentação na página inicial
   portfolio:
-    perfil: Back-end e infraestrutura. Estudante de Sistemas de Informação na PUC Minas.
-    status: Buscando estágio · Belo Horizonte
+    perfil: "Estudante de Sistemas de Informação na PUC\u00A0Minas, focado em back-end e infraestrutura."
+    status: Disponível para estágio em BH
     links:
       - nome: GitHub
         url: https://github.com/luizz-costa
