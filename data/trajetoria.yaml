@@ -2,12 +2,12 @@
 # atual: true marca o item como HEAD (só um item deve ter isso).
 # tipo: experiencia ou formacao
 itens:
-  - titulo: Desenvolvedor responsável
+  - titulo: Desenvolvedor back-end
     local: Projeto de extensão, PUC Minas
     periodo: ago/2026 – atual
     tipo: experiencia
     atual: true
-    descricao: Desenvolvimento da API e do banco de dados de um sistema de escalas de serviço para uma empresa parceira, dos requisitos com o usuário aos testes, numa equipe de seis pessoas.
+    descricao: Desenvolvi sozinho, numa equipe de 6, o sistema que substitui as planilhas de escalas de serviço de uma empresa parceira, com API REST em C#/.NET 8, PostgreSQL e Docker, dos requisitos com o usuário aos testes.
 
   - titulo: Bacharelado em Sistemas de Informação
     local: PUC Minas
