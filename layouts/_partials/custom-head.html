@@ -11,3 +11,20 @@
 {{ end }}
 
 <meta name="theme-color" content="#292a2d">
+
+{{/* Prévia de links (LinkedIn, WhatsApp, e-mail).
+     Página inicial: img/og.png. Página de projeto com "imagem:": usa o print do projeto. */}}
+{{ $autor := site.Params.author.name }}
+{{ $titulo := cond .IsHome $autor (printf "%s | %s" .Title $autor) }}
+{{ $descricao := .Description | default site.Params.sitedescription }}
+{{ $imagem := "img/og.png" }}
+{{ with .Params.imagem }}{{ $imagem = . }}{{ end }}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ $autor }}">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ $titulo }}">
+<meta property="og:description" content="{{ $descricao }}">
+<meta property="og:image" content="{{ $imagem | absURL }}">
+<meta property="og:image:alt" content="{{ $titulo }}">
+<meta name="twitter:card" content="summary_large_image">
