@@ -1,0 +1,27 @@
+{{/*
+  Cópia do header.html do tema Nightfall, com o prompt colorido como um terminal de verdade:
+  usuario@host em verde, o caminho em azul e um cursor piscando depois do $.
+  O resto (classes, menu hambúrguer) é igual ao do tema, para o CSS e o menu.js continuarem funcionando.
+*/}}
+<header class="headerWrapper">
+    <div class="header">
+        <div>
+            <a class="terminal" href="{{ .Site.BaseURL | relLangURL }}" aria-label="Página inicial">
+                <span class="prompt-userhost">{{ .Site.Params.user }}@{{ .Site.Params.hostname }}</span><span class="prompt-sep">:</span><span class="prompt-path">~</span><span class="prompt-char">$</span><span class="prompt-cursor" aria-hidden="true"></span>
+            </a>
+        </div>
+        <input class="side-menu" type="checkbox" id="side-menu">
+        <label class="hamb" for="side-menu" aria-label="Abrir menu"><span class="hamb-line"></span></label>
+        <nav class="headerLinks" aria-label="Seções">
+            <ul>
+                {{ range .Site.Menus.header }}
+                <li>
+                    <a href="{{ .URL | absLangURL }}" title="{{ .Title }}">
+                        <span class="menu-dir">~/</span>{{- .Name -}}
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+    </div>
+</header>

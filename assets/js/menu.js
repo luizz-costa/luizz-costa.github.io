@@ -1,24 +1,87 @@
-// Fecha o menu do celular (hambúrguer do tema Nightfall).
-// O tema abre o menu com uma caixa de seleção escondida (#side-menu).
-// Como os links levam para seções da mesma página, a página não recarrega
-// e o menu continuaria aberto. Este script desmarca a caixa ao clicar num link.
+// Comportamentos do menu do cabeçalho.
 (function () {
+  // ---------- 1. Fecha o menu do celular ao tocar num link ----------
+  // O tema abre o menu com uma caixa de seleção escondida (#side-menu).
+  // Como os links levam para seções da mesma página, a página não recarrega
+  // e o menu continuaria aberto. Aqui a caixa é desmarcada ao clicar num link.
   var caixa = document.getElementById('side-menu');
-  if (!caixa) return;
 
-  function fechar() {
-    caixa.checked = false;
+  function fecharMenu() {
+    if (caixa) caixa.checked = false;
   }
 
-  document.querySelectorAll('.headerLinks a').forEach(function (link) {
-    link.addEventListener('click', fechar);
+  var links = Array.prototype.slice.call(document.querySelectorAll('.headerLinks a'));
+
+  links.forEach(function (link) {
+    link.addEventListener('click', fecharMenu);
   });
 
-  // Tecla Esc também fecha
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') fechar();
+    if (e.key === 'Escape') fecharMenu();
   });
 
-  // Se a tela crescer (celular girado, janela redimensionada), fecha
-  window.matchMedia('(min-width: 769px)').addEventListener('change', fechar);
+  window.matchMedia('(min-width: 769px)').addEventListener('change', fecharMenu);
+
+  // ---------- 2. Destaca no menu a seção que está na tela ----------
+  // Cada link aponta para uma seção (#sobre, #trajetoria...). A seção "atual"
+  // é a que está passando por uma linha imaginária a 40% da altura da tela.
+  // O link dessa seção ganha a classe "ativo" (cor âmbar, definida no CSS).
+  var itens = links
+    .map(function (link) {
+      var id = new URL(link.href, location.href).hash.slice(1);
+      var secao = id && document.getElementById(id);
+      return secao ? { link: link, secao: secao } : null;
+    })
+    .filter(Boolean);
+
+  if (!itens.length) return;
+
+  function marcar(ativo) {
+    itens.forEach(function (item) {
+      var eAtivo = item === ativo;
+      item.link.classList.toggle('ativo', eAtivo);
+      if (eAtivo) {
+        item.link.setAttribute('aria-current', 'location');
+      } else {
+        item.link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  function atualizar() {
+    var linha = window.innerHeight * 0.4;
+    var noFim = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
+    // No fim da página, a última seção (contato) fica ativa,
+    // mesmo sendo curta demais para alcançar a linha.
+    if (noFim) {
+      marcar(itens[itens.length - 1]);
+      return;
+    }
+
+    var ativo = null;
+    itens.forEach(function (item) {
+      var r = item.secao.getBoundingClientRect();
+      if (r.top <= linha && r.bottom > linha) ativo = item;
+    });
+
+    // Seções que não estão no menu (tecnologias, certificados)
+    // e a apresentação no topo deixam todos os itens brancos.
+    marcar(ativo);
+  }
+
+  // Recalcula no máximo uma vez por quadro de animação, para não pesar
+  var agendado = false;
+  function agendar() {
+    if (agendado) return;
+    agendado = true;
+    requestAnimationFrame(function () {
+      agendado = false;
+      atualizar();
+    });
+  }
+
+  window.addEventListener('scroll', agendar, { passive: true });
+  window.addEventListener('resize', agendar);
+  atualizar();
 })();

@@ -544,3 +544,66 @@
 @media (prefers-reduced-motion: reduce) {
   .headerLinks { transition: none; }
 }
+
+/* ---------- Prompt e menu do cabeçalho ----------
+   Cores de um prompt de bash: usuário@host em verde, caminho em azul.
+   As duas cores já existem no tema (green e blue), então combinam com o resto. */
+.terminal .prompt-userhost { color: var(--verde); }
+.terminal .prompt-sep { color: var(--texto); }
+.terminal .prompt-path { color: var(--azul); }
+.terminal .prompt-char { color: var(--texto); margin-left: 0.6ch; }
+
+/* Cursor de bloco piscando, como no terminal */
+.terminal .prompt-cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.05em;
+  margin-left: 0.6ch;
+  vertical-align: -0.15em;
+  background: var(--ambar);
+  animation: cursor-piscar 1.1s steps(1) infinite;
+}
+
+@keyframes cursor-piscar {
+  50% { opacity: 0; }
+}
+
+.terminal:hover { text-decoration: none; }
+.terminal:hover .prompt-userhost { text-decoration: underline; }
+
+/* Menu: o "~/" fica apagado e o nome em destaque; no hover, o nome fica âmbar */
+.headerLinks .menu-dir {
+  color: var(--texto-suave);
+}
+
+.headerLinks ul li a:hover {
+  color: var(--ambar);
+  text-decoration: none;
+}
+
+.headerLinks ul li a:hover .menu-dir {
+  color: var(--ambar);
+}
+
+/* Cabeçalho fixo no topo ao rolar a página, em qualquer tamanho de tela */
+.headerWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow: visible;
+}
+
+/* Com o cabeçalho fixo, o título da seção para logo abaixo dele */
+.secao {
+  scroll-margin-top: 72px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal .prompt-cursor { animation: none; }
+}
+
+/* Item do menu da seção que está na tela: mesma cor do hover */
+.headerLinks ul li a.ativo,
+.headerLinks ul li a.ativo .menu-dir {
+  color: var(--ambar);
+}

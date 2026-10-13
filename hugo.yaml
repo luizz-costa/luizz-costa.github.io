@@ -45,10 +45,10 @@ params:
   showMetadata: false
   showReadingTime: false
 
-  footerHtml: '© 2026 Luiz Felipe Alves Costa. Feito com <a href="https://gohugo.io" class="footerLink">Hugo</a> e o tema <a href="https://github.com/LordMathis/hugo-theme-nightfall" class="footerLink">Nightfall</a>.'
+  footerHtml: '© 2026 Luiz Costa'
 
   author:
-    name: Luiz Felipe Alves Costa
+    name: Luiz Costa
     email: luizcostavzp@gmail.com
     # Coloque a foto em static/img/ e descomente a linha abaixo
     avatar: /img/luiz.jpg
