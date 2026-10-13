@@ -25,7 +25,7 @@
 {{ with site.Params.portfolio.subtitulo }}{{ $tituloHome = printf "%s | %s" $autor . }}{{ end }}
 {{ $titulo := cond .IsHome $tituloHome (printf "%s | %s" .Title $autor) }}
 {{ $descricao := .Description | default site.Params.sitedescription }}
-{{ $imagem := "img/og.png" }}
+{{ $imagem := "img/og-v2.png" }}
 {{ with .Params.imagem }}{{ $imagem = . }}{{ end }}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ $autor }}">
