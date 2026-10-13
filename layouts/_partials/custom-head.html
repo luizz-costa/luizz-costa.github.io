@@ -3,4 +3,11 @@
   {{ $css := . | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 {{ end }}
+
+{{/* Script que fecha o menu do celular ao clicar num link. "defer" roda depois que a página carrega. */}}
+{{ with resources.Get "js/menu.js" }}
+  {{ $js := . | minify | fingerprint }}
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ end }}
+
 <meta name="theme-color" content="#292a2d">

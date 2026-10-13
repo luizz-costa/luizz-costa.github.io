@@ -13,7 +13,12 @@
 
   <ul class="links">
     {{ range $p.links }}
-      <li><a href="{{ .url | safeURL }}">{{ .nome }}</a></li>
+      <li>
+        {{/* Com ícone: mostra só o ícone; o nome vira o texto lido por leitores de tela e o balão do mouse */}}
+        <a href="{{ .url | safeURL }}"{{ if .icone }} class="link-icone" aria-label="{{ .nome }}" title="{{ .nome }}"{{ end }}>
+          {{ with .icone }}{{ partial "portfolio/icone.html" . }}{{ else }}{{ .nome }}{{ end }}
+        </a>
+      </li>
     {{ end }}
   </ul>
 </section>

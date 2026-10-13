@@ -122,6 +122,37 @@
   text-decoration: none;
 }
 
+/* Links com ícone: área de clique de 44px, sem sublinhado */
+.links:has(.link-icone) {
+  gap: 14px;
+}
+
+.links .link-icone {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--linha);
+  border-radius: 50%;
+  color: var(--texto);
+  transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+}
+
+.links .link-icone:hover {
+  color: var(--ambar);
+  border-color: var(--ambar);
+  background-color: rgba(255, 179, 0, 0.08);
+}
+
+.links .link-icone svg {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .links .link-icone { transition: none; }
+}
+
 /* ---------- Sobre ---------- */
 
 .sobre-texto {
@@ -448,4 +479,68 @@
 
   .certificado { grid-template-columns: minmax(0, 1fr) auto; }
   .certificado-nome { grid-column: 1 / -1; }
+}
+
+/* ---------- Menu do celular (hambúrguer) ----------
+   Corrige o menu do tema em telas pequenas:
+   - o cabeçalho fica fixo no topo, então o X continua visível ao rolar;
+   - o painel aparece e some por opacidade, em vez de "esticar" a altura,
+     o que causava o efeito transparente com o conteúdo aparecendo por trás;
+   - links maiores, mais fáceis de tocar;
+   - a página não rola por trás enquanto o menu está aberto. */
+@media screen and (max-width: 768px) {
+  .headerWrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow: visible;
+  }
+
+  .headerLinks {
+    inset: 60px 0 0 0;
+    height: auto;
+    max-height: none;
+    z-index: 99;
+    background-color: var(--fundo);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s;
+  }
+
+  .side-menu:checked ~ .headerLinks {
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .headerLinks ul {
+    gap: 8px;
+  }
+
+  .headerLinks ul li {
+    margin: 0;
+  }
+
+  .headerLinks ul li a {
+    display: block;
+    padding: 12px 28px;
+    font-size: 1.4rem;
+  }
+
+  .headerLinks ul li a:hover {
+    color: var(--ambar);
+  }
+
+  body:has(.side-menu:checked) {
+    overflow: hidden;
+  }
+
+  /* Com o cabeçalho fixo, o título da seção para logo abaixo dele */
+  .secao {
+    scroll-margin-top: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headerLinks { transition: none; }
 }
