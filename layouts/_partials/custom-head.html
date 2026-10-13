@@ -21,7 +21,9 @@
 {{/* Prévia de links (LinkedIn, WhatsApp, e-mail).
      Página inicial: img/og.png. Página de projeto com "imagem:": usa o print do projeto. */}}
 {{ $autor := site.Params.author.name }}
-{{ $titulo := cond .IsHome $autor (printf "%s | %s" .Title $autor) }}
+{{ $tituloHome := $autor }}
+{{ with site.Params.portfolio.subtitulo }}{{ $tituloHome = printf "%s | %s" $autor . }}{{ end }}
+{{ $titulo := cond .IsHome $tituloHome (printf "%s | %s" .Title $autor) }}
 {{ $descricao := .Description | default site.Params.sitedescription }}
 {{ $imagem := "img/og.png" }}
 {{ with .Params.imagem }}{{ $imagem = . }}{{ end }}

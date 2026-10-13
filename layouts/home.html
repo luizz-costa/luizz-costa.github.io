@@ -1,4 +1,4 @@
-{{ define "title" }}{{ site.Params.author.name }}{{ end }}
+{{ define "title" }}{{ site.Params.author.name }}{{ with site.Params.portfolio.subtitulo }} | {{ . }}{{ end }}{{ end }}
 
 {{ define "main" }}
 <div class="portfolio">
