@@ -5,7 +5,6 @@ grupos:
       - { nome: "C#", icone: csharp }
       - { nome: ".NET 8", icone: dotnetcore }
       - { nome: "PHP", icone: php }
-      - { nome: "Laravel", icone: laravel }
 
   - nome: Banco de dados
     itens:
@@ -17,6 +16,7 @@ grupos:
       - { nome: "Linux", icone: linux }
       - { nome: "Docker", icone: docker }
       - { nome: "Git", icone: git }
+      - { nome: "GitHub Actions", icone: githubactions }
       - { nome: "Shell Script", icone: bash }
 
   - nome: Estudando
@@ -24,5 +24,5 @@ grupos:
     itens:
       - { nome: "AWS", icone: amazonwebservices }
       - { nome: "Terraform", icone: terraform }
-      - { nome: "GitHub Actions", icone: githubactions }
       - { nome: "Python", icone: python }
+      - { nome: "Laravel", icone: laravel }

@@ -22,7 +22,7 @@ Desenvolvi o sistema sozinho, numa equipe de 6, num projeto de extensão da PUC 
 - **API REST** em C# com .NET 8 e ASP.NET Core, documentada com Swagger.
 - **Banco PostgreSQL** modelado com Entity Framework Core (code-first), com migrations aplicadas ao iniciar, chaves estrangeiras e índices únicos.
 - **Interface web** com 5 telas em HTML, CSS e JavaScript puro, servidas pela própria API, com proteção contra XSS.
-- **Testes**: gerador de dados de demonstração que simula mais de 400 serviços e roteiro com 34 casos de teste. O defeito encontrado foi corrigido e retestado.
+- **Testes**: gerador de dados de demonstração que preenche a escala desde uma data inicial até o dia atual, e roteiro com 34 casos de teste. O defeito encontrado foi corrigido e retestado.
 - **Documentação**: 74 decisões técnicas registradas, com data e motivo.
 
 ## Como funciona a lista de prioridade
