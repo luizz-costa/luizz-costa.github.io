@@ -25,7 +25,7 @@
 {{ with site.Params.portfolio.subtitulo }}{{ $tituloHome = printf "%s | %s" $autor . }}{{ end }}
 {{ $titulo := cond .IsHome $tituloHome (printf "%s | %s" .Title $autor) }}
 {{ $descricao := .Description | default site.Params.sitedescription }}
-{{ $imagem := "img/og-v2.png" }}
+{{ $imagem := "img/og-v3.png" }}
 {{ with .Params.imagem }}{{ $imagem = . }}{{ end }}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ $autor }}">
@@ -36,3 +36,23 @@
 <meta property="og:image" content="{{ $imagem | absURL }}">
 <meta property="og:image:alt" content="{{ $titulo }}">
 <meta name="twitter:card" content="summary_large_image">
+
+{{/* Dados estruturados (schema.org): dizem ao Google quem é a pessoa do site, os outros nomes
+     dela e os perfis oficiais. Não aparecem na tela. Só na página inicial. */}}
+{{ if .IsHome }}
+  {{ $perfis := slice }}
+  {{ range site.Params.portfolio.links }}
+    {{ if hasPrefix .url "https://" }}{{ $perfis = $perfis | append .url }}{{ end }}
+  {{ end }}
+  {{ $pessoa := dict
+    "@context" "https://schema.org"
+    "@type" "Person"
+    "name" site.Params.author.name
+    "alternateName" site.Params.author.outrosNomes
+    "url" site.BaseURL
+    "image" (site.Params.author.avatar | absURL)
+    "description" site.Params.sitedescription
+    "sameAs" $perfis
+  }}
+  <script type="application/ld+json">{{ $pessoa | jsonify | safeJS }}</script>
+{{ end }}

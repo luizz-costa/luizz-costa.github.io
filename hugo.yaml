@@ -45,12 +45,13 @@ params:
   showMetadata: false
   showReadingTime: false
 
-  footerHtml: '© 2026 Luiz Costa'
+  footerHtml: '© 2026 Luiz Felipe Costa'
 
   author:
-    name: Luiz Costa
+    name: Luiz Felipe Costa
+    # Outras formas do nome, só para o Google ligar as buscas a este site (não aparecem na página)
+    outrosNomes: ["Luiz Felipe Alves Costa", "Luiz Costa"]
     email: luizcostavzp@gmail.com
-    # Coloque a foto em static/img/ e descomente a linha abaixo
     avatar: /img/luiz.jpg
     iniciais: LF
 
