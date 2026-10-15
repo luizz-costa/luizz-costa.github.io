@@ -49,10 +49,12 @@ A escala do dia resume quem está de serviço e quem está impedido em cada esca
 
 ## Destaques técnicos
 
-- Tudo sobe com um comando, com Docker Compose: API, banco do sistema e Data Warehouse.
+- Tudo sobe com um comando, com Docker Compose: API, banco do sistema e Data Warehouse, criado automaticamente na primeira subida.
 - Dockerfile multi-stage, com a API rodando com usuário sem privilégios.
+- Healthcheck no banco: a API só sobe quando ele está pronto, e as migrations são aplicadas ao iniciar.
 - Portas presas em `127.0.0.1` e configuráveis pelo `.env`; credenciais fora do repositório.
-- Modelo dimensional de Data Warehouse (esquema estrela) para indicadores de absenteísmo e efetivo.
+- O sistema inteiro usa menos de 100 MB de memória rodando no meu servidor Linux.
+- Modelo dimensional de Data Warehouse em esquema estrela, com 2 tabelas fato e 5 dimensões, grão mensal, para indicadores de absenteísmo e efetivo, e metadados documentados no próprio banco com `COMMENT ON`.
 
 ## Código
 
