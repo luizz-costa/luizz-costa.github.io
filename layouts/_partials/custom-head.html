@@ -26,6 +26,13 @@
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 {{ end }}
 
+{{/* Feed RSS do blog: o tema só avisa os leitores de feed na própria página /blog/. Aqui o aviso aparece nas outras páginas também. */}}
+{{ if not (.OutputFormats.Get "rss") }}
+  {{ with site.GetPage "/blog" }}{{ with .OutputFormats.Get "rss" }}
+  <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ site.Title }}: Blog">
+  {{ end }}{{ end }}
+{{ end }}
+
 {{/* Favicon: ícone da aba (SVG, com PNG e ICO de reserva) e atalho na tela inicial (apple-touch-icon no iPhone, manifest no Android). */}}
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 <link rel="icon" href="{{ "favicon-32.png" | relURL }}" type="image/png" sizes="32x32">

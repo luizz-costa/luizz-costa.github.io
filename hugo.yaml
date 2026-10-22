@@ -1,5 +1,7 @@
 baseURL: https://luizz-costa.github.io/
 locale: pt-BR
+# Fuso usado nas datas dos posts e do feed (igual no seu PC e no GitHub Actions).
+timeZone: America/Sao_Paulo
 title: Luiz Felipe Costa
 theme: hugo-theme-nightfall
 
