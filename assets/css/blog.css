@@ -1,0 +1,10 @@
+/* Páginas do blog (listagem e posts). */
+
+/* A listagem do tema não tem margem lateral: o conteúdo encostava na borda da tela. */
+.blogLista { padding: 20px; }
+
+/* O tema põe todas as palavras do título em maiúscula ("Post De Teste"). Em português, o título fica como foi escrito. */
+.postTitle { text-transform: none; }
+
+/* O tema centraliza o texto da página; num título que quebra de linha no celular, o certo é alinhar à esquerda. */
+.postHeader { text-align: left; }

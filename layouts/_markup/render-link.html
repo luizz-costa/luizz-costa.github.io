@@ -1,0 +1,7 @@
+{{/* Cópia do render-link.html do tema Nightfall, sem as quebras de linha que o tema deixava antes e depois do link
+     (elas apareciam como um espaço, por exemplo "link ." em vez de "link."). */}}
+{{- if site.Params.openLinksInNewTab -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- else -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ with .Text }}{{ . }}{{ end }}</a>
+{{- end -}}

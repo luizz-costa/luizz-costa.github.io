@@ -20,6 +20,12 @@
   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 {{ end }}
 
+{{/* Estilo da listagem e das páginas do blog. */}}
+{{ with resources.Get "css/blog.css" }}
+  {{ $css := . | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{ end }}
+
 {{/* Favicon: ícone da aba (SVG, com PNG e ICO de reserva) e atalho na tela inicial (apple-touch-icon no iPhone, manifest no Android). */}}
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 <link rel="icon" href="{{ "favicon-32.png" | relURL }}" type="image/png" sizes="32x32">
