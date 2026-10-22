@@ -5,4 +5,9 @@ title: Projetos
 build:
   render: never
   list: always
+
+# Páginas de projeto não mostram data nem tempo de leitura (o blog mostra)
+cascade:
+  showMetadata: false
+  showReadingTime: false
 ---

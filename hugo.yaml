@@ -49,9 +49,8 @@ params:
   styles:
     color: orange
 
-  # Páginas de projeto não mostram data nem tempo de leitura
-  showMetadata: false
-  showReadingTime: false
+  # Formato da data na listagem e nos posts (dia/mês/ano)
+  displayDateFormat: "02/01/2006"
 
   footerHtml: '© 2026 Luiz Felipe Costa'
 
