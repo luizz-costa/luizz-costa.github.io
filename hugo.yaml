@@ -8,6 +8,14 @@ disableKinds:
   - taxonomy
   - term
 
+# Formatos gerados: só HTML. O Hugo gera RSS sozinho na página inicial e nas seções,
+# mas o único feed que faz sentido aqui é o do blog (ligado na seção do blog).
+outputs:
+  home:
+    - html
+  section:
+    - html
+
 # Recomendado pela documentação do Hugo para o deploy no GitHub Pages
 caches:
   images:
