@@ -625,6 +625,50 @@
   color: var(--ambar);
 }
 
+/* ---------- Cabeçalho: espaço para o prompt e para os 5 itens do menu ----------
+   O tema fixa a largura do cabeçalho em 760px, a mesma da coluna de texto. Só que o prompt muda de
+   tamanho conforme a seção (luiz@homelab:~/trajetoria$ chega a 271px) e o menu com 5 itens tem 511px:
+   somados passam de 760px, e o último item caía para uma segunda linha. */
+.header {
+  width: 900px;
+}
+
+/* O tema troca o menu pelo botão hambúrguer a partir de 768px. Com o menu completo, só cabe em telas
+   de pelo menos ~830px; por isso o botão passa a valer até 54em (864px com a fonte padrão do navegador;
+   em "em", acompanha quem aumenta a fonte). As regras abaixo são as do tema para o celular,
+   repetidas com esse ponto de troca maior. */
+@media screen and (max-width: 54em) {
+  .headerLinks {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    background-color: var(--fundo);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .headerLinks ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamb {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 54em) and (prefers-reduced-motion: reduce) {
+  .headerLinks { transition: none; }
+}
+
 /* Em celulares bem estreitos, o prompt diminui um pouco
    para "~/trajetoria" caber ao lado do botão do menu */
 @media screen and (max-width: 380px) {

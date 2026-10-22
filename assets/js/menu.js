@@ -20,9 +20,25 @@
     if (e.key === 'Escape') fecharMenu();
   });
 
-  window.matchMedia('(min-width: 769px)').addEventListener('change', fecharMenu);
+  window.matchMedia('(min-width: 54em)').addEventListener('change', fecharMenu);
 
-  // ---------- 2. Destaca a seção que está na tela (menu e prompt) ----------
+  // ---------- 2. Páginas do blog: destaca ~/blog e põe a pasta no prompt ----------
+  // O blog tem páginas próprias, sem seções com âncora. Nelas, o item ~/blog fica ativo
+  // e o prompt mostra a pasta, como luiz@homelab:~/blog$ (ou ~/tags nas páginas de tag).
+  var pasta = location.pathname.split('/')[1];
+  if (pasta === 'blog' || pasta === 'tags') {
+    links.forEach(function (link) {
+      if (new URL(link.href).pathname === '/blog/') {
+        link.classList.add('ativo');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+    var promptPasta = document.querySelector('.prompt-path');
+    if (promptPasta) promptPasta.textContent = '~/' + pasta;
+    return;
+  }
+
+  // ---------- 3. Destaca a seção que está na tela (menu e prompt) ----------
   // Cada link aponta para uma seção (#sobre, #trajetoria...). A seção "atual"
   // é a que está passando por uma linha imaginária a 40% da altura da tela.
   // O link dessa seção ganha a classe "ativo" (cor âmbar, definida no CSS).

@@ -37,9 +37,12 @@ menus:
     - name: projetos
       url: /#projetos
       weight: 3
+    - name: blog
+      url: /blog/
+      weight: 4
     - name: contato
       url: /#contato
-      weight: 4
+      weight: 5
 
 params:
   # Cabeçalho do tema: luiz@homelab ~ $
