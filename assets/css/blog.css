@@ -8,3 +8,6 @@
 
 /* O tema centraliza o texto da página; num título que quebra de linha no celular, o certo é alinhar à esquerda. */
 .postHeader { text-align: left; }
+
+/* A página /tags/ (lista de todas as tags) usa o mesmo cabeçalho da listagem e também precisa de margem lateral. */
+.main > div:has(> .listHeader) { padding: 20px; }

@@ -1,0 +1,9 @@
+{{/* Cópia do taxonomy/tags.html do tema Nightfall. Única mudança: as tags aparecem em minúsculas (#linux, não #Linux). */}}
+<!-- [html-validate-disable element-required-ancestor] -->
+<dt>{{ i18n "tags" }}</dt>
+<dd>
+{{- range $index, $el := . -}}
+    <span></span>
+    <a href="{{ .RelPermalink }}">#{{ .LinkTitle | lower }}</a>
+{{- end -}}
+</dd>

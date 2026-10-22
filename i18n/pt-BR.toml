@@ -41,3 +41,12 @@ other = "mais recentes"
 
 [older_posts]
 other = "mais antigos"
+
+[posts_with_term]
+other = "posts com a tag"
+
+[no_terms]
+other = "Nenhuma tag ainda."
+
+[page]
+other = "página"

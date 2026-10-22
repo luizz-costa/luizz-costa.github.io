@@ -3,17 +3,21 @@ locale: pt-BR
 title: Luiz Felipe Costa
 theme: hugo-theme-nightfall
 
-# Sem tags e categorias por enquanto
-disableKinds:
-  - taxonomy
-  - term
+# Só tags (sem categorias). Os posts escolhem tags de um vocabulário fixo:
+# aws, docker, linux, homelab, dotnet, seguranca, portfolio
+taxonomies:
+  tag: tags
 
-# Formatos gerados: só HTML. O Hugo gera RSS sozinho na página inicial e nas seções,
+# Formatos gerados: só HTML. O Hugo gera RSS sozinho na página inicial, nas seções e nas tags,
 # mas o único feed que faz sentido aqui é o do blog (ligado na seção do blog).
 outputs:
   home:
     - html
   section:
+    - html
+  taxonomy:
+    - html
+  term:
     - html
 
 # Recomendado pela documentação do Hugo para o deploy no GitHub Pages
