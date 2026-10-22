@@ -81,3 +81,8 @@ params:
       - nome: E-mail
         url: mailto:luizcostavzp@gmail.com
         icone: email
+
+# Realce de sintaxe dos blocos de código: o Hugo marca cada trecho com uma classe CSS (cores em assets/css/codigo.css)
+markup:
+  highlight:
+    noClasses: false

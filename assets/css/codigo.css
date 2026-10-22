@@ -1,0 +1,82 @@
+/* Blocos de código dos posts e das páginas de projeto.
+   A caixa é escura (mais que a página) e tem borda e barra no topo, para não se confundir com o texto.
+   As cores do realce usam as classes que o Hugo coloca em cada trecho (.k = palavra-chave, .s = texto, .c = comentário...). */
+
+.codigo {
+  margin: 1.25rem 0;
+  border: 1px solid #45464b;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #18191b;
+}
+
+.codigo-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: #252627;
+  border-bottom: 1px solid #45464b;
+  font-family: "Fira Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+}
+
+.codigo-lang { color: #ffb300; }
+
+.codigo-copiar {
+  font: inherit;
+  color: #b4b4bd;
+  background: none;
+  border: 1px solid #45464b;
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+.codigo-copiar:hover,
+.codigo-copiar:focus-visible {
+  color: #ffb300;
+  border-color: #ffb300;
+}
+
+.codigo .highlight,
+.codigo pre { margin: 0; }
+
+.codigo .chroma { background: transparent; color: #f8f8ff; }
+
+.codigo pre {
+  padding: 12px 14px;
+  overflow-x: auto;
+}
+
+.codigo pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Código dentro de uma frase (entre crases) */
+:not(pre) > code {
+  background: #1e1f22;
+  border: 1px solid #45464b;
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-size: 0.85em;
+}
+
+/* ---------- Cores do realce ---------- */
+.chroma .c, .chroma .ch, .chroma .cm, .chroma .c1, .chroma .cs, .chroma .cp, .chroma .cpf { color: #8a8d94; font-style: italic; }
+.chroma .k, .chroma .kc, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr, .chroma .kt { color: #80aadd; }
+.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl, .chroma .sd, .chroma .s2, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss { color: #33d17a; }
+.chroma .m, .chroma .mb, .chroma .mf, .chroma .mh, .chroma .mi, .chroma .il, .chroma .mo, .chroma .no, .chroma .nl { color: #ffb300; }
+.chroma .nb, .chroma .bp, .chroma .nf, .chroma .fm, .chroma .nc, .chroma .nn, .chroma .nd, .chroma .ne, .chroma .nx { color: #d0a8ff; }
+.chroma .nt, .chroma .na { color: #80aadd; }
+.chroma .nv, .chroma .vc, .chroma .vg, .chroma .vi, .chroma .vm { color: #ffb300; }
+.chroma .o, .chroma .ow { color: #e8a87c; }
+.chroma .p { color: #b4b4bd; }
+.chroma .gi { color: #33d17a; }
+.chroma .gd { color: #f26e74; }
+.chroma .gh, .chroma .gu { color: #ffb300; font-weight: bold; }
+.chroma .go { color: #b4b4bd; }
+.chroma .err { color: #f26e74; }

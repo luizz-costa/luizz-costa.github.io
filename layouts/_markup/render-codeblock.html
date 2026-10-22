@@ -1,0 +1,9 @@
+{{/* Molde de cada bloco de código (```linguagem): barra com a linguagem e o botão copiar, e o código realçado. */}}
+{{- $lang := .Type | default "texto" -}}
+<div class="codigo">
+  <div class="codigo-topo">
+    <span class="codigo-lang">{{ $lang }}</span>
+    <button type="button" class="codigo-copiar" aria-label="Copiar o código {{ $lang }}">copiar</button>
+  </div>
+  {{- transform.Highlight .Inner .Type .Options -}}
+</div>
