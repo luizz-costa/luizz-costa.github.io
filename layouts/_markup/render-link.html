@@ -1,7 +1,10 @@
 {{/* Cópia do render-link.html do tema Nightfall, sem as quebras de linha que o tema deixava antes e depois do link
      (elas apareciam como um espaço, por exemplo "link ." em vez de "link."). */}}
+{{- /* Link interno que começa com "/" vira endereço completo, para também funcionar dentro do leitor de RSS. */ -}}
+{{- $destino := .Destination -}}
+{{- if and (strings.HasPrefix $destino "/") (not (strings.HasPrefix $destino "//")) -}}{{- $destino = $destino | absURL -}}{{- end -}}
 {{- if site.Params.openLinksInNewTab -}}
-<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
+<a href="{{ $destino | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
 {{- else -}}
-<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ with .Text }}{{ . }}{{ end }}</a>
+<a href="{{ $destino | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ with .Text }}{{ . }}{{ end }}</a>
 {{- end -}}

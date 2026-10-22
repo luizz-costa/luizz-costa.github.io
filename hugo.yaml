@@ -94,3 +94,7 @@ params:
 markup:
   highlight:
     noClasses: false
+  goldmark:
+    parser:
+      # Imagem sozinha numa linha deixa de ser embrulhada num <p>: assim vira <figure> com legenda (layouts/_markup/render-image.html).
+      wrapStandAloneImageWithinParagraph: false

@@ -1,0 +1,38 @@
+{{- /* Imagens dos posts. Se a imagem está na pasta do post (ex.: ![texto](print.png "legenda")), o Hugo:
+       converte para WebP (menor), reduz para no máximo 900px de largura, grava largura e altura
+       (a página não "pula" enquanto carrega) e carrega só quando a imagem chega perto da tela.
+       Clicar na imagem abre o arquivo original, para ler textos pequenos de prints.
+       Usa endereço completo (Permalink) para a imagem também aparecer no leitor de RSS. */ -}}
+{{- $texto := .PlainText -}}
+{{- if not $texto -}}{{- warnf "Imagem sem texto alternativo em %s: %s" .PageInner.Path .Destination -}}{{- end -}}
+{{- $original := .PageInner.Resources.Get .Destination -}}
+{{- $src := .Destination -}}
+{{- if strings.HasPrefix $src "/" -}}{{- $src = $src | absURL -}}{{- end -}}
+{{- $largura := 0 -}}
+{{- $altura := 0 -}}
+{{- $link := "" -}}
+{{- with $original -}}
+  {{- $src = .Permalink -}}
+  {{- $largura = .Width -}}
+  {{- $altura = .Height -}}
+  {{- /* SVG e GIF animado ficam como estão. As demais viram WebP. */ -}}
+  {{- if not (in (slice "svg" "gif") .MediaType.SubType) -}}
+    {{- $otimizada := cond (gt .Width 900) (.Resize "900x webp q85") (.Process "webp q85") -}}
+    {{- $link = .Permalink -}}
+    {{- $src = $otimizada.Permalink -}}
+    {{- $largura = $otimizada.Width -}}
+    {{- $altura = $otimizada.Height -}}
+  {{- end -}}
+{{- end -}}
+{{- $img := printf `<img src="%s" alt="%s"%s loading="lazy" decoding="async">` $src ($texto | htmlEscape) (cond (gt $largura 0) (printf ` width="%d" height="%d"` $largura $altura) "") -}}
+{{- if and .IsBlock $original -}}
+<figure class="postImagem">
+  {{- if $link }}<a href="{{ $link }}" target="_blank" rel="noopener">{{ $img | safeHTML }}</a>{{ else }}{{ $img | safeHTML }}{{ end }}
+  {{- with .Title }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>
+{{- else if .IsBlock -}}
+{{- /* Imagem do site (ex.: /img/projetos/print.png), como nas páginas de projeto: continua num parágrafo, sem legenda. */ -}}
+<p>{{ $img | safeHTML }}</p>
+{{- else -}}
+{{- $img | safeHTML -}}
+{{- end -}}
