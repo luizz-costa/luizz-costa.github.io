@@ -17,3 +17,14 @@
 .postImagem { margin: 1.5em 0; text-align: center; }
 .postImagem img { border: 1px solid #45464b; border-radius: 6px; }
 .postImagem figcaption { margin-top: 0.5em; font-size: 0.9em; opacity: 0.75; }
+
+/* Texto dos posts: letra um pouco maior, mais espaço entre as linhas e linhas de uns 70 caracteres
+   (linhas muito longas cansam e fazem o olho se perder na volta para a linha de baixo). */
+.postWrapper { font-size: 1.0625rem; line-height: 1.7; }
+.postWrapper p,
+.postWrapper li,
+.postWrapper blockquote { max-width: 38em; }
+.postWrapper p { margin: 0 0 1.1em; }
+.postWrapper li { margin-bottom: 0.35em; }
+.postWrapper h2 { margin: 2.2em 0 0.6em; }
+.postWrapper h3 { margin: 1.8em 0 0.5em; }
