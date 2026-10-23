@@ -28,3 +28,12 @@
 .postWrapper li { margin-bottom: 0.35em; }
 .postWrapper h2 { margin: 2.2em 0 0.6em; }
 .postWrapper h3 { margin: 1.8em 0 0.5em; }
+
+/* Tabelas dos posts: linhas separando cada item, cabeçalho destacado e caixa com a mesma borda das imagens.
+   Em tela estreita, só a tabela rola para o lado (ver layouts/_markup/render-table.html). */
+.tabela { margin: 1.5em 0; overflow-x: auto; border: 1px solid var(--linha); border-radius: 6px; }
+.tabela table { width: 100%; min-width: 30em; border-collapse: collapse; font-size: 0.95em; line-height: 1.5; }
+.tabela th,
+.tabela td { padding: 0.6em 0.9em; text-align: left; vertical-align: top; border-bottom: 1px solid var(--linha); }
+.tabela th { background: var(--fundo-escuro); color: var(--texto-suave); font-family: var(--mono); font-size: 0.85em; font-weight: 500; }
+.tabela tbody tr:last-child td { border-bottom: 0; }
