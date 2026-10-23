@@ -6,6 +6,10 @@
 {{- $texto := .PlainText -}}
 {{- if not $texto -}}{{- warnf "Imagem sem texto alternativo em %s: %s" .PageInner.Path .Destination -}}{{- end -}}
 {{- $original := .PageInner.Resources.Get .Destination -}}
+{{- /* Imagem que não é um endereço (http…, /img/…) e não está na pasta do post: erro claro no terminal, em vez de imagem quebrada no site. */ -}}
+{{- if and (not $original) (not (strings.HasPrefix .Destination "/")) (not (strings.HasPrefix .Destination "http")) -}}
+  {{- errorf "Imagem não encontrada na pasta do post %s: %s" .PageInner.Path .Destination -}}
+{{- end -}}
 {{- $src := .Destination -}}
 {{- if strings.HasPrefix $src "/" -}}{{- $src = $src | absURL -}}{{- end -}}
 {{- $largura := 0 -}}
