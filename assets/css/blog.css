@@ -44,3 +44,6 @@
 .postMeta { display: flex; flex-wrap: wrap; gap: 0.2em 1.4em; margin: 0 0 1.4em; font-family: var(--mono); font-size: 0.85rem; color: var(--texto-suave); }
 .postTags a { margin-right: 0.6em; text-decoration: none; }
 .postResumo { margin: 0 0 2em; color: var(--texto-suave); }
+
+/* Lista de posts: a data fica na linha do tempo de leitura, abaixo do título, para o título usar a largura toda do cartão. */
+.postDate { float: none; color: inherit; }

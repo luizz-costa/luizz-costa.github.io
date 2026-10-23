@@ -1,4 +1,4 @@
-{{/* Cópia do list.html do tema Nightfall. Única mudança: o resumo de cada item vem do "description" do post. */}}
+{{/* Cópia do list.html do tema Nightfall. Mudanças: o resumo de cada item vem do "description" do post e a data fica na linha do tempo de leitura. */}}
 {{ define "title"}}
 {{ .Title }} | {{ .Site.Params.author.name }}
 {{ end }}
@@ -25,19 +25,17 @@
         <a class="postListLink" href="{{ .Permalink }}">
           <div class="postHeader">
             <span class="postTitle">{{ .Title }}</span>
-            {{ $layout := .Site.Params.displayDateFormat | default "2006-01-02" }}
-            {{ $iso := .Date | time.Format "2006-01-02" }}
-            <time class="postDate" datetime="{{ $iso }}">{{ .Date | time.Format $layout }}</time>
           </div>
+          {{ $layout := .Site.Params.displayDateFormat | default "2006-01-02" }}
+          {{ $iso := .Date | time.Format "2006-01-02" }}
           {{ $showReadingTime := true }}
           {{ if eq .Site.Params.showReadingTime false }}{{ $showReadingTime = false }}{{ end }}
           {{ if eq .Site.Params.readingTime false }}{{ $showReadingTime = false }}{{ end }}
           {{ if eq .Params.showReadingTime false }}{{ $showReadingTime = false }}{{ end }}
-          {{ if $showReadingTime }}
           <div class="readingTime">
-            {{ i18n "reading_time" }}: {{ i18n "reading_time_desc" .ReadingTime }}
+            <time class="postDate" datetime="{{ $iso }}">{{ .Date | time.Format $layout }}</time>
+            {{ if $showReadingTime }}· {{ i18n "reading_time" }}: {{ i18n "reading_time_desc" .ReadingTime }}{{ end }}
           </div>
-          {{ end }}
         </a>
         <div class="postExcerpt">
           {{/* O resumo é o "description" do post; se não houver, usa o começo do texto. */}}

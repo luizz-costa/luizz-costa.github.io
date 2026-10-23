@@ -1,4 +1,4 @@
-{{/* Cópia do term.html do tema Nightfall (página de uma tag). Mudanças: margem lateral, título #tag em minúsculas e resumo vindo do "description". */}}
+{{/* Cópia do term.html do tema Nightfall (página de uma tag). Mudanças: margem lateral, título #tag em minúsculas e resumo vindo do "description" e data na linha do tempo de leitura. */}}
 {{ define "title" }}
   {{ .Title }} | {{ .Site.Params.author.name }}
 {{ end }}
@@ -24,20 +24,17 @@
         <a class="postListLink" href="{{ .Permalink }}">
           <div class="postHeader">
             <span class="postTitle">{{ .Title }}</span>
-            {{ $layout := .Site.Params.displayDateFormat | default "2006-01-02" }}
-            {{ $iso := .Date | time.Format "2006-01-02" }}
-            <time class="postDate" datetime="{{ $iso }}">{{ .Date | time.Format $layout }}</time>
           </div>
-
+          {{ $layout := .Site.Params.displayDateFormat | default "2006-01-02" }}
+          {{ $iso := .Date | time.Format "2006-01-02" }}
           {{ $showReadingTime := true }}
           {{ if eq .Site.Params.showReadingTime false }}{{ $showReadingTime = false }}{{ end }}
           {{ if eq .Site.Params.readingTime false }}{{ $showReadingTime = false }}{{ end }}
           {{ if eq .Params.showReadingTime false }}{{ $showReadingTime = false }}{{ end }}
-          {{ if $showReadingTime }}
           <div class="readingTime">
-            {{ i18n "reading_time" }}: {{ i18n "reading_time_desc" .ReadingTime }}
+            <time class="postDate" datetime="{{ $iso }}">{{ .Date | time.Format $layout }}</time>
+            {{ if $showReadingTime }}· {{ i18n "reading_time" }}: {{ i18n "reading_time_desc" .ReadingTime }}{{ end }}
           </div>
-          {{ end }}
         </a>
 
         <div class="postExcerpt">
