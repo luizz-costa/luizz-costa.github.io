@@ -1,7 +1,7 @@
 ---
 title: "Meu primeiro deploy na AWS: do Docker Compose ao Amazon ECS"
 date: 2026-10-22
-draft: true
+draft: false
 description: "Como foi fazer a trilha Express Mode do workshop de Amazon ECS do AWS Student Builder Group PUC Minas: o que eu fiz, o que deu errado e o que aprendi, comparando com o Docker Compose do meu projeto."
 tags: ["aws", "docker"]
 # imagem: capa.png
