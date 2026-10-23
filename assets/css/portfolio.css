@@ -17,6 +17,14 @@
   --mono: "Fira Mono", ui-monospace, monospace;
 }
 
+/* ---------- Leitura: títulos ----------
+   O tema só instala a Fira Mono no peso Medium (500). Como os títulos pedem negrito (700), o navegador
+   "engrossava" a letra por conta própria, o que borra o traço. Aqui o título usa o peso que existe de verdade. */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
 /* ---------- Base da página inicial ---------- */
 
 .portfolio {
