@@ -37,3 +37,10 @@
 .tabela td { padding: 0.6em 0.9em; text-align: left; vertical-align: top; border-bottom: 1px solid var(--linha); }
 .tabela th { background: var(--fundo-escuro); color: var(--texto-suave); font-family: var(--mono); font-size: 0.85em; font-weight: 500; }
 .tabela tbody tr:last-child td { border-bottom: 0; }
+
+/* Cabeçalho do post: título, uma linha com data, tempo de leitura e tags, e o resumo.
+   Em tela estreita, cada item vai inteiro para a linha de baixo, sem quebrar no meio. */
+.postWrapper h1 { margin: 0 0 0.35em; line-height: 1.25; }
+.postMeta { display: flex; flex-wrap: wrap; gap: 0.2em 1.4em; margin: 0 0 1.4em; font-family: var(--mono); font-size: 0.85rem; color: var(--texto-suave); }
+.postTags a { margin-right: 0.6em; text-decoration: none; }
+.postResumo { margin: 0 0 2em; color: var(--texto-suave); }

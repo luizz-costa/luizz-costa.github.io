@@ -1,0 +1,30 @@
+{{/* Cópia do single.html do tema Nightfall (página de um post). Mudança: no lugar da caixa de metadados do tema,
+     uma linha só com data, tempo de leitura e tags, logo abaixo do título (estilo em blog.css). */}}
+{{ define "title"}}
+{{ .Title }} | {{ .Site.Params.author.name }}
+{{ end }}
+
+{{ define "main" }}
+<div class="postWrapper">
+    <h1>{{ .Title }}</h1>
+
+    <div class="postMeta">
+        {{ $layout := .Site.Params.displayDateFormat | default "2006-01-02" }}
+        <time datetime="{{ .Date | time.Format "2006-01-02" }}">{{ .Date | time.Format $layout }}</time>
+        <span>{{ i18n "reading_time_desc" .ReadingTime }} de leitura</span>
+        {{ with .GetTerms "tags" }}
+        <span class="postTags">
+            {{- range . }}<a href="{{ .RelPermalink }}">#{{ .LinkTitle | lower }}</a> {{ end -}}
+        </span>
+        {{ end }}
+    </div>
+
+    {{ with .Description }}
+    <p class="postResumo">{{ . }}</p>
+    {{ end }}
+
+    <div>
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}
