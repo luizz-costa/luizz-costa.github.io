@@ -15,6 +15,22 @@
   --azul: #80aadd;         /* cor "blue" do tema */
   --verde: #33d17a;        /* cor "green" do tema */
   --mono: "Fira Mono", ui-monospace, monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;  
+}
+
+/* ---------- Leitura: fonte do texto ----------
+   O tema carrega o Open Sans só no peso normal: negrito e itálico saíam "simulados" pelo navegador
+   (letra engrossada e borrada). Aqui o texto usa a fonte do próprio sistema (no Windows, a Segoe UI,
+   feita para ficar nítida na tela), que tem negrito e itálico de verdade. O negrito fica um pouco
+   mais leve que o padrão (semibold). */
+
+body {
+  font-family: var(--sans);
+}
+
+strong,
+b {
+  font-weight: 600;
 }
 
 /* ---------- Leitura: títulos ----------
